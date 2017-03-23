@@ -1,18 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     tools:context="tictactoe.games.battmenstudios.tictactoe.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/screen_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="49dp"
+            android:layout_marginTop="49dp"
+            android:background="@color/divider"
+            android:text="TIC TAC TOE"
+            android:textColor="@color/accent"
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/butt_onePlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="71dp"
+            android:text="One Player" />
+
+        <Button
+            android:id="@+id/butt_twoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/butt_onePlayer"
+            android:layout_marginTop="51dp"
+            android:text="Two Player" />
+
+        <Button
+            android:id="@+id/butt_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/butt_howToPlay"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp"
+            android:text="Settings" />
+
+        <Button
+            android:id="@+id/butt_howToPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="58dp"
+            android:text="How To Play"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/screen_twoPlayerSettings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <Button
+            android:id="@+id/butt_startGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="89dp"
+            android:text="Start Game"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/screen_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <Button
+                android:id="@+id/r0c0"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="0"
+                android:layout_marginBottom="10dp"
+                android:layout_row="0" />
+
+            <Button
+                android:id="@+id/r0c1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="1"
+                android:layout_marginBottom="10dp"
+                android:layout_row="0" />
+
+            <Button
+                android:id="@+id/r0c2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:layout_marginBottom="10dp"
+                android:layout_row="0" />
+
+            <Button
+                android:id="@+id/r1c0"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="0"
+                android:layout_marginBottom="10dp"
+                android:layout_row="1" />
+
+            <Button
+                android:id="@+id/r1c1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="1"
+                android:layout_marginBottom="10dp"
+                android:layout_row="1" />
+
+            <Button
+                android:id="@+id/r1c2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:layout_marginBottom="10dp"
+                android:layout_row="1" />
+
+            <Button
+                android:id="@+id/r2c0"
+                android:layout_width="102dp"
+                android:layout_height="100dp"
+                android:layout_column="0"
+                android:layout_row="2" />
+
+            <Button
+                android:id="@+id/r2c1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="1"
+                android:layout_row="2" />
+
+            <Button
+                android:id="@+id/r2c2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:layout_row="2" />
+        </GridLayout>
+    </RelativeLayout>
+</FrameLayout>
