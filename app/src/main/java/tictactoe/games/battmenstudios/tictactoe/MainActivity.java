@@ -6,10 +6,20 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.ArrayList;
+
+import tictactoe.games.battmenstudios.tictactoe.Models.Board;
+import tictactoe.games.battmenstudios.tictactoe.Models.Tile;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private int[] CLICKABLES = {R.id.butt_onePlayer, R.id.butt_twoPlayer, R.id.butt_settings, R.id.butt_howToPlay, R.id.butt_startGame};
     private int[] SCREENS = {R.id.screen_main, R.id.screen_twoPlayerSettings, R.id.screen_game};
+
+    private boolean twoPlayers;
+
+    Board board;
+    private ArrayList<Tile> tiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.butt_onePlayer:
                 break;
             case R.id.butt_twoPlayer:
+                twoPlayers = true;
                 switchToScreen(R.id.screen_twoPlayerSettings);
                 break;
             case R.id.butt_settings:
@@ -41,8 +52,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.butt_startGame:
                 switchToScreen(R.id.screen_game);
+                startGame();
+                for (Tile tile : tiles) {
+                    findViewById(tile.getViewId()).setOnClickListener(this);
+                }
                 break;
         }
+
+    }
+
+    /*Game Logic*/
+    public void startGame() {
+        if (twoPlayers) {
+            board = new Board(3);
+        }
+        tiles = board.getTiles();
     }
 
     private void switchToScreen(int screenId) {
@@ -53,5 +77,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mCurScreen = screenId;
     }
 
-
+    private int[] tileIds = {R.id.r0c0,R.id.r0c1,R.id.r0c2,R.id.r0c3,R.id.r1c0,R.id.r1c1,R.id.r1c2,R.id.r1c3,R.id.r2c0,R.id.r2c1,R.id.r2c2,R.id.r2c3,R.id.r3c0,R.id.r3c1,R.id.r3c2,R.id.r3c3};
 }
